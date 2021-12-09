@@ -1,7 +1,7 @@
-#include "MainComponent.h"
+#include "GameBoard.h"
 
 //==============================================================================
-MainComponent::MainComponent()
+GameBoard::GameBoard()
 {
     setSize (600, 400);
     setFramesPerSecond(5);
@@ -15,12 +15,12 @@ MainComponent::MainComponent()
     food = randomFood();
 }
 
-MainComponent::~MainComponent()
+GameBoard::~GameBoard()
 {
 }
 
 //==============================================================================
-void MainComponent::paint (juce::Graphics& g)
+void GameBoard::paint (juce::Graphics& g)
 {
     // (Our component is opaque, so we must completely fill the background with a solid colour)
     g.fillAll (juce::Colours::white);
@@ -32,14 +32,14 @@ void MainComponent::paint (juce::Graphics& g)
     g.fillRect(food.getX(), food.getY(), box, box);
 }
 
-void MainComponent::resized()
+void GameBoard::resized()
 {
     // This is called when the MainComponent is resized.
     // If you add any child components, this is where you should
     // update their positions.
 }
 
-void MainComponent::update() {
+void GameBoard::update() {
     // old head position
     auto oldHead{ snake[0] };
     if (direction == Direction::LEFT) oldHead.x -= box;
@@ -57,7 +57,7 @@ void MainComponent::update() {
     snake.insert(snake.begin(), oldHead);
 }
 
-bool MainComponent::keyPressed(const juce::KeyPress& key, juce::Component* comp) {
+bool GameBoard::keyPressed(const juce::KeyPress& key, juce::Component* comp) {
     if (key.getKeyCode() == key.leftKey && direction != Direction::RIGHT) direction = Direction::LEFT;
     else if (key.getKeyCode() == key.upKey && direction != Direction::DOWN) direction = Direction::UP;
     else if (key.getKeyCode() == key.rightKey && direction != Direction::LEFT) direction = Direction::RIGHT;

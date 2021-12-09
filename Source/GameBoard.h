@@ -7,12 +7,12 @@
     This component lives inside our window, and this is where you should put all
     your controls and content.
 */
-class MainComponent  : public juce::AnimatedAppComponent, public juce::KeyListener
+class GameBoard  : public juce::AnimatedAppComponent, public juce::KeyListener
 {
 public:
     //==============================================================================
-    MainComponent();
-    ~MainComponent() override;
+    GameBoard();
+    ~GameBoard() override;
 
     //==============================================================================
     void paint (juce::Graphics&) override;
@@ -38,5 +38,5 @@ private:
     juce::Point<int> food;
     int score;
 
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (GameBoard)
 };

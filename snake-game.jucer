@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="vxITyO" name="snake-game" projectType="guiapp" useAppConfig="0"
-              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1">
+              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" cppLanguageStandard="20">
   <MAINGROUP id="nLsoby" name="snake-game">
     <GROUP id="{44B6129E-DC09-4D11-6BFF-2C7C211FDE8B}" name="Source">
       <FILE id="hABO8Z" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
-      <FILE id="oriVGC" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
-      <FILE id="dzycpH" name="MainComponent.cpp" compile="1" resource="0"
-            file="Source/MainComponent.cpp"/>
+      <FILE id="oriVGC" name="GameBoard.h" compile="0" resource="0" file="Source/GameBoard.h"/>
+      <FILE id="dzycpH" name="GameBoard.cpp" compile="1" resource="0" file="Source/GameBoard.cpp"/>
     </GROUP>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1"/>
