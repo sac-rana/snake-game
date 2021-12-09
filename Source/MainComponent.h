@@ -20,7 +20,7 @@ public:
     void update() override;
     bool keyPressed(const juce::KeyPress&, juce::Component* comp) override;
     juce::Point<int> randomFood() {
-        return juce::Point<int>(random.nextInt(pieces - 3) * box + box, random.nextInt(pieces - 3) * box + box);
+        return juce::Point<int>(random.nextInt(piecesX) * box, random.nextInt(piecesY) * box);
     }
     //bool keyPressed(const juce::KeyPress &, Component*) override;
 private:
@@ -31,7 +31,8 @@ private:
     };
     Direction direction;
     juce::Random random;
-    int pieces;
+    int piecesX;
+    int piecesY;
     int box;
     std::vector<juce::Point<int>> snake;
     juce::Point<int> food;

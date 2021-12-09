@@ -4,12 +4,13 @@
 MainComponent::MainComponent()
 {
     setSize (600, 400);
-    setFramesPerSecond(2);
+    setFramesPerSecond(5);
     setWantsKeyboardFocus(true);
     addKeyListener(this);
     direction = Direction::RIGHT;
-    pieces = 20;
-    box = getWidth() / pieces;
+    piecesX = 20;
+    box = getWidth() / piecesX;
+    piecesY = getHeight() / box;
     snake = { juce::Point<int>(1 * box, 1 * box) };
     food = randomFood();
 }
@@ -23,9 +24,6 @@ void MainComponent::paint (juce::Graphics& g)
 {
     // (Our component is opaque, so we must completely fill the background with a solid colour)
     g.fillAll (juce::Colours::white);
-    g.setFont(juce::Font(24.0f));
-    g.drawText("x: " + juce::String(food.x) + ", y: " + juce::String(food.y), getLocalBounds(), juce::Justification::centred, true);
-
     g.setColour(juce::Colours::red);
     for (const auto &part: snake) {
         g.fillRect(part.getX(), part.getY(), box, box);
