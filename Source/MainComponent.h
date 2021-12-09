@@ -7,7 +7,7 @@
     This component lives inside our window, and this is where you should put all
     your controls and content.
 */
-class MainComponent  : public juce::AnimatedAppComponent
+class MainComponent  : public juce::AnimatedAppComponent, public juce::KeyListener
 {
 public:
     //==============================================================================
@@ -18,6 +18,7 @@ public:
     void paint (juce::Graphics&) override;
     void resized() override;
     void update() override;
+    bool keyPressed(const juce::KeyPress&, juce::Component* comp) override;
     juce::Point<int> randomFood() {
         return juce::Point<int>(random.nextInt(pieces - 3) * box + box, random.nextInt(pieces - 3) * box + box);
     }

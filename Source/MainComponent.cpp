@@ -4,8 +4,9 @@
 MainComponent::MainComponent()
 {
     setSize (600, 400);
-    setFramesPerSecond(10);
+    setFramesPerSecond(2);
     setWantsKeyboardFocus(true);
+    addKeyListener(this);
     direction = Direction::RIGHT;
     pieces = 20;
     box = getWidth() / pieces;
@@ -22,6 +23,8 @@ void MainComponent::paint (juce::Graphics& g)
 {
     // (Our component is opaque, so we must completely fill the background with a solid colour)
     g.fillAll (juce::Colours::white);
+    g.setFont(juce::Font(24.0f));
+    g.drawText("x: " + juce::String(food.x) + ", y: " + juce::String(food.y), getLocalBounds(), juce::Justification::centred, true);
 
     g.setColour(juce::Colours::red);
     for (const auto &part: snake) {
@@ -54,4 +57,12 @@ void MainComponent::update() {
 
     // add new head
     snake.insert(snake.begin(), oldHead);
+}
+
+bool MainComponent::keyPressed(const juce::KeyPress& key, juce::Component* comp) {
+    if (key.getKeyCode() == key.leftKey && direction != Direction::RIGHT) direction = Direction::LEFT;
+    else if (key.getKeyCode() == key.upKey && direction != Direction::DOWN) direction = Direction::UP;
+    else if (key.getKeyCode() == key.rightKey && direction != Direction::LEFT) direction = Direction::RIGHT;
+    else if (key.getKeyCode() == key.downKey && direction != Direction::UP) direction = Direction::DOWN;
+    return true;
 }
