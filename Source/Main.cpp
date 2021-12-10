@@ -7,7 +7,7 @@
 */
 
 #include <JuceHeader.h>
-#include "GameBoard.h"
+#include "MainComponent.h"
 
 //==============================================================================
 class snakegameApplication  : public juce::JUCEApplication
@@ -65,7 +65,7 @@ public:
                               DocumentWindow::allButtons)
         {
             setUsingNativeTitleBar (true);
-            setContentOwned (new GameBoard(), true);
+            setContentOwned (new MainComponent(), true);
 
            #if JUCE_IOS || JUCE_ANDROID
             setFullScreen (true);
